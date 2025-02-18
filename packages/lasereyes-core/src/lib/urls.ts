@@ -4,7 +4,7 @@ import {
   SIGNET,
   TESTNET,
   TESTNET4,
-} from '../constants/networks'
+} from '../types/network'
 import { NetworkType } from '../types'
 
 export const MEMPOOL_SPACE_URL = 'https://mempool.space'

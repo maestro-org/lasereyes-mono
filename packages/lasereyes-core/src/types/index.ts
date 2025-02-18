@@ -5,7 +5,8 @@ import {
   SIGNET,
   TESTNET,
   TESTNET4,
-} from '../constants/networks'
+} from './network'
+import { MAESTRO, MEMPOOL_SPACE, SANDSHREW } from '../constants/sources'
 import {
   UNISAT,
   XVERSE,
@@ -60,6 +61,11 @@ export type NetworkType =
   | typeof FRACTAL_MAINNET
   | typeof FRACTAL_TESTNET
 
+export type SourceType =
+  | typeof MAESTRO
+  | typeof MEMPOOL_SPACE
+  | typeof SANDSHREW
+
 export type ProviderType =
   | typeof UNISAT
   | typeof XVERSE
@@ -106,12 +112,13 @@ export type ContentType =
 
 export type Config = {
   network:
-  | typeof MAINNET
-  | typeof TESTNET
-  | typeof TESTNET4
-  | typeof SIGNET
-  | typeof FRACTAL_MAINNET
-  | typeof FRACTAL_TESTNET
+    | typeof MAINNET
+    | typeof TESTNET
+    | typeof TESTNET4
+    | typeof SIGNET
+    | typeof FRACTAL_MAINNET
+    | typeof FRACTAL_TESTNET
+  source: typeof MAESTRO | typeof MEMPOOL_SPACE | typeof SANDSHREW
 }
 
 export type SendArgs = BTCSendArgs | RuneSendArgs
@@ -132,7 +139,6 @@ export interface RuneSendArgs {
   amount: number
   network: NetworkType
 }
-
 
 export interface OYLBalanceResponse {
   brc20s: {

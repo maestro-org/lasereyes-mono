@@ -1,6 +1,6 @@
 import * as bitcoin from 'bitcoinjs-lib'
 import { WalletProvider } from '.'
-import { getNetworkForUnisat, getUnisatNetwork } from '../../constants/networks'
+import { getNetworkForUnisat, getUnisatNetwork } from '../../types/network'
 import { NetworkType, ProviderType } from '../../types'
 import { UNISAT } from '../../constants/wallets'
 import { listenKeys } from 'nanostores'
