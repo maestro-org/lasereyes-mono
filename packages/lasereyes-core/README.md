@@ -49,6 +49,16 @@ Providers are modular, making it easy to add support for additional wallets. Cur
 - **Wizz**
 - **Xverse**
 
+### Source
+
+Various data sources can be leveraged by the wallet providers to interact with the Bitcoin network.
+
+Current supported sources include:
+
+- **Maestro**: https://www.gomaestro.org/
+- **mempool.space**: https://mempool.space/
+- **Sandshrew**: https://www.sandshrew.io/
+
 ## Installation
 
 To install `@omnisat/lasereyes-core`, choose one of the following package managers and run the command below:
@@ -102,7 +112,7 @@ constructor(
   - `stores`: An object containing the following:
     - `$store`: A `MapStore<LaserEyesStoreType>` that stores the application state.
     - `$network`: A `WritableAtom<NetworkType>` that tracks the current network type.
-  - `config`: An optional `Config` object for initial configuration, such as the network setting.
+  - `config`: An optional `Config` object for initial configuration, such as the network and source settings.
 
 - **Initialization:**
   - The constructor initializes the wallet provider map and subscribes to network and initialization-related changes.
@@ -317,7 +327,12 @@ First, create the necessary stores and configuration:
 
 ```typescript
 const stores = createStores()
+
+// without specifying source
 const config = createConfig({ network: 'mainnet' }) // or 'testnet', 'signet', etc.
+
+// specifying source
+const config = createConfig({ network: 'mainnet', source: 'maestro' }) // or 'mempool.space', 'sandshrew'
 ```
 
 Then, initialize the `LaserEyesClient`:

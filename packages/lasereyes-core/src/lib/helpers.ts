@@ -7,7 +7,7 @@ import {
   SIGNET,
   TESTNET,
   TESTNET4,
-} from '../constants/networks'
+} from '../types/network'
 import axios from 'axios'
 import { MempoolUtxo, NetworkType } from '../types'
 import { getMempoolSpaceUrl } from './urls'
@@ -173,7 +173,6 @@ export async function createSendBtcPsbt(
   }
 }
 
-
 export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -197,7 +196,6 @@ export async function broadcastTx(
   )
   return response.data
 }
-
 
 export const isTestnetNetwork = (network: NetworkType) => {
   return network === TESTNET || network === TESTNET4 || network === SIGNET

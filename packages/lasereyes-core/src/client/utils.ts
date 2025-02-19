@@ -1,5 +1,5 @@
 import { MapStore, WritableAtom, atom, map } from 'nanostores'
-import { MAINNET } from '../constants/networks'
+import { MAINNET } from '../types/network'
 import {
   LEATHER,
   MAGIC_EDEN,
@@ -13,7 +13,7 @@ import {
   OP_NET,
   SPARROW,
 } from '../constants/wallets'
-import { NetworkType, ProviderType } from '../types'
+import { NetworkType, ProviderType, SourceType } from '../types'
 import { LaserEyesStoreType } from './types'
 
 export function triggerDOMShakeHack(callback: VoidFunction) {
@@ -63,9 +63,16 @@ export function createStores(): {
   }
 }
 
-export function createConfig({ network }: { network: NetworkType }) {
+export function createConfig({
+  network,
+  source,
+}: {
+  network: NetworkType
+  source: SourceType
+}) {
   return {
     network,
+    source,
   }
 }
 
